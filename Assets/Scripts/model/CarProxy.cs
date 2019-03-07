@@ -3,7 +3,7 @@ using PureMVC.Interfaces;
 using PureMVC.Patterns.Proxy;
 using UnityEngine;
 
-namespace Ordina {
+namespace Ordina.Model {
     public class CarProxy : Proxy, IProxy {
 
         public new const string NAME = "CarProxy";

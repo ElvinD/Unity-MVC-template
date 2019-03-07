@@ -1,12 +1,12 @@
 ﻿using PureMVC.Patterns.Command;
 using PureMVC.Interfaces;
-using UnityEngine;
+using Ordina.Model;
 
-namespace Ordina {
+namespace Ordina.Controller {
     internal class CreateModelCommand : SimpleCommand {
 
-        public override void Execute(INotification note) {
-            Debug.Log("creating model: " + note);
+        public override void Execute(INotification notification) {
+            Facade.RegisterProxy(new CopyProxy());
             Facade.RegisterProxy(new CarProxy());
         }
     }

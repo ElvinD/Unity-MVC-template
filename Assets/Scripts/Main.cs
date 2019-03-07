@@ -1,11 +1,18 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using PureMVC.Patterns.Facade;
+using Ordina.Controller;
+using Ordina.View;
 
 namespace Ordina {
 
     static class ApplicationKeys {
         public const string MAIN = "MainApplication";
         public const string MAIN_FACADE = "MainFacade";
+    }
+
+    static class GameObjectTags {
+        public const string BUTTON = "UI_Button";
     }
 
     public class Main : MonoBehaviour {

@@ -1,6 +1,6 @@
 ﻿using PureMVC.Patterns.Mediator;
 using UnityEngine;
-namespace Ordina {
+namespace Ordina.View {
     public class ApplicationMediator : Mediator {
 
         public new const string NAME = "ApplicationMediator";

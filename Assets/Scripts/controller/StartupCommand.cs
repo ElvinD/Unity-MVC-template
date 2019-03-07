@@ -1,7 +1,7 @@
 using UnityEngine;
 using PureMVC.Patterns.Command;
 
-namespace Ordina {
+namespace Ordina.Controller {
 
     public class StartupCommand : MacroCommand {
        protected override void InitializeMacroCommand() {
