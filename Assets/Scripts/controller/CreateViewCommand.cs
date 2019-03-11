@@ -9,7 +9,6 @@ namespace Ordina.Controller {
 
         public override void Execute(INotification notification) {
             Main app = (Main) notification.Body;
-            //Debug.Log("creating mediator " + app);
             Facade.RegisterMediator(new ApplicationMediator(app));
             RegisterButtonMediators();
         }
@@ -21,12 +20,16 @@ namespace Ordina.Controller {
             if (objects != null) {
                 foreach (GameObject o in objects) {
                     ButtonView bv = new ButtonView(o);
-                    switch (bv.Id) {
-                        case 0:
+                    switch (bv.Config.actions) {
+                        case ApplicationActions.TAKE_PHOTO:
                             buttonLabel = copyProxy.GetCopy(CopyKeys.TAKE_PICTURE);
                             break;
 
-                        case 1:
+                        case ApplicationActions.UPLOAD_PHOTO:
+                            buttonLabel = copyProxy.GetCopy(CopyKeys.UPLOAD_DATA);
+                            break;
+
+                        case ApplicationActions.RESET_PHOTO:
                             buttonLabel = copyProxy.GetCopy(CopyKeys.CLEAR_PICTURE);
                             break;
 

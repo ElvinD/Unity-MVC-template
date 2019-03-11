@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
 using PureMVC.Patterns.Facade;
 using Ordina.Controller;
 using Ordina.View;
@@ -38,7 +37,6 @@ namespace Ordina {
         }
     }
 
-
     public class ApplicationFacade : Facade {
 
         public ApplicationFacade(string key) : base() { }
@@ -49,13 +47,11 @@ namespace Ordina {
             SendNotification(Notifications.STARTUP, app);
         }
 
-
         protected override void InitializeController() {
             base.InitializeController();
             RegisterCommand(Notifications.STARTUP, () => new StartupCommand());
             RegisterCommand(Notifications.SEND_UI_ACTION, () => new HandleUIActionCommand());
 
         }
-
     }
 }

@@ -17,6 +17,7 @@ namespace Ordina.Model {
         public override void OnRegister() {
             GetData().Add(CopyKeys.TAKE_PICTURE, "Neem foto");
             GetData().Add(CopyKeys.CLEAR_PICTURE, "Verwijder foto");
+            GetData().Add(CopyKeys.UPLOAD_DATA, "Haal info op");
             GetData().Add(CopyKeys.COPY_NOT_FOUND, "Label ontbreekt");
             GetData().Add(CopyKeys.RESET, "Opnieuw");
         }
@@ -46,6 +47,7 @@ namespace Ordina.Model {
         public const string CLEAR_PICTURE = "CLEAR_PICTURE";
         public const string RESET = "RESET";
         public const string COPY_NOT_FOUND = "COPY_NOT_FOUND";
+        public const string UPLOAD_DATA = "UPLOAD_DATA";
         
     }
 }
