@@ -7,9 +7,23 @@ namespace Ordina.View {
         public ButtonMediator(ButtonView viewComponent, string name) : base(name, viewComponent) {
         }
 
+        protected void InitListeners() {
+            if (GetViewComponent() != null) {
+                GetViewComponent().InitEvents();
+                GetViewComponent().OnClickEvent.AddListener(OnButtonClicked);
+            } else {
+                Debug.Log("not ready: " + this);
+            }
+        }
+
+        protected void OnButtonClicked() {
+            Debug.Log("heard click from: " + GetViewComponent().Id);
+        }
+
         public override void OnRegister() {
             //CarProxy proxy = (CarProxy)Facade.RetrieveProxy(CarProxy.NAME);
-            Debug.Log("we have view component: " + GetViewComponent() + "from " + MediatorName);
+            InitListeners();
+
         }
 
         public ButtonView GetViewComponent() {
