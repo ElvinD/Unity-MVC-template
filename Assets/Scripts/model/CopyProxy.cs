@@ -14,24 +14,15 @@ namespace Ordina.Model {
         public CopyProxy() : base(NAME, new Dictionary<string, string>()) {
         }
 
-        //public override void OnRegister() {
-        //    (Data as ObservableCollection<CopyVO>).CollectionChanged += (object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e) => {
-        //        Debug.Log("added stuff to copy proxy " + e); };
-        //    GetData().Add(new CopyVO { label = "fotobutton", value = CopyKeys.TAKE_PICTURE});
-
-        //}
-
         public override void OnRegister() {
             GetData().Add(CopyKeys.TAKE_PICTURE, "Neem foto");
             GetData().Add(CopyKeys.CLEAR_PICTURE, "Verwijder foto");
+            GetData().Add(CopyKeys.COPY_NOT_FOUND, "Label ontbreekt");
             GetData().Add(CopyKeys.RESET, "Opnieuw");
 
             Debug.Log(GetCopy(CopyKeys.TAKE_PICTURE));
         }
 
-        //public ObservableCollection<CopyVO> GetData() {
-        //    return (ObservableCollection<CopyVO>)Data;
-        //}
         protected Dictionary<string, string> GetData() {
             return (Dictionary<string, string>)Data;
         }
@@ -45,8 +36,6 @@ namespace Ordina.Model {
                 return result;
             }
         }
-
-
 
     }
     public struct CopyVO {
