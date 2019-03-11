@@ -19,13 +19,12 @@ namespace Ordina.View {
             }
         }
         private string _label;
-        public int Id { get; set; }
         protected static int IdCounter = 0;
         private Text textField;
         protected GameObject gameObject;
-        private ViewComponentConfig _config;
-        ViewComponentConfig Config { get { return Config; } }
 
+        public ViewComponentConfig Config { get; private set; }
+        public int Id { get; set; }
         public UnityEvent OnHideStartEvent;
         public UnityEvent OnHideCompleteEvent;
         public UnityEvent OnShowStartEvent;
@@ -40,16 +39,12 @@ namespace Ordina.View {
         }
 
         void Init() {
-            //Debug.Log("found gameobject: " + gameObject);
-            //Debug.Log("id for button: " + Id);
-            _config = gameObject.GetComponent<ViewComponentConfig>();
-            if (_config != null) {
-                Debug.Log("found view config: " + _config);
+            Config = gameObject.GetComponent<ViewComponentConfig>();
+            if (Config != null) {
+                //Debug.Log("found view config: " + _config);
             } else {
                 Debug.Log("Button with id: " + Id + " did not find a IDE config for this component, this is bad mojo. Throw some bad Error or smth.");
             } 
-
-            //OnHideStartEvent += (e, args) => Debug.Log("on hide event triggered");
         }
 
         public void InitEvents() {
@@ -91,6 +86,5 @@ namespace Ordina.View {
         protected void OnShowComplete() {
             OnShowCompleteEvent?.Invoke();
         }
-
     }
 }

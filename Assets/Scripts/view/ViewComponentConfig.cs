@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Ordina;
 using UnityEngine;
 
+[System.Serializable]
 public class ViewComponentConfig : MonoBehaviour {
     public int Id;
 
@@ -9,19 +9,6 @@ public class ViewComponentConfig : MonoBehaviour {
     public float InitPosY;
     public float InitPosZ;
 
-
+    public ApplicationActions actions;
     public string Label;
-
-    public ViewComponentConfig(GameObject component = null) {
-        if (component) {
-            
-                 
-        }
-    }
-
-    public void Awake() {
-    }
-
-    public void Start() {
-    }
 }

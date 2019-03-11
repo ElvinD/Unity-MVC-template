@@ -6,6 +6,7 @@ namespace Ordina.Controller {
     internal class CreateModelCommand : SimpleCommand {
 
         public override void Execute(INotification notification) {
+            Facade.RegisterProxy(new ApplicationStateProxy());
             Facade.RegisterProxy(new CopyProxy());
             Facade.RegisterProxy(new CarProxy());
         }

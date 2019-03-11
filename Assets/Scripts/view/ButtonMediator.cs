@@ -12,16 +12,16 @@ namespace Ordina.View {
                 GetViewComponent().InitEvents();
                 GetViewComponent().OnClickEvent.AddListener(OnButtonClicked);
             } else {
-                Debug.Log("not ready: " + this);
+                Debug.Log("ButtonMediator not ready: " + this);
             }
         }
 
         protected void OnButtonClicked() {
-            Debug.Log("heard click from: " + GetViewComponent().Id);
+            //Debug.Log("heard click from: " + GetViewComponent().Id);
+            SendNotification(Notifications.SEND_UI_ACTION, GetViewComponent().Config);
         }
 
         public override void OnRegister() {
-            //CarProxy proxy = (CarProxy)Facade.RetrieveProxy(CarProxy.NAME);
             InitListeners();
 
         }

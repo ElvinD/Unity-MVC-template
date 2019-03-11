@@ -9,7 +9,7 @@ namespace Ordina.Controller {
 
         public override void Execute(INotification notification) {
             Main app = (Main) notification.Body;
-            Debug.Log("creating mediator " + app);
+            //Debug.Log("creating mediator " + app);
             Facade.RegisterMediator(new ApplicationMediator(app));
             RegisterButtonMediators();
         }

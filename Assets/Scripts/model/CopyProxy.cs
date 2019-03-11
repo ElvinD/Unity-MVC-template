@@ -19,8 +19,6 @@ namespace Ordina.Model {
             GetData().Add(CopyKeys.CLEAR_PICTURE, "Verwijder foto");
             GetData().Add(CopyKeys.COPY_NOT_FOUND, "Label ontbreekt");
             GetData().Add(CopyKeys.RESET, "Opnieuw");
-
-            Debug.Log(GetCopy(CopyKeys.TAKE_PICTURE));
         }
 
         protected Dictionary<string, string> GetData() {
