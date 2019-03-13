@@ -27,6 +27,7 @@ namespace Ordina {
 
     static class GameObjectTags {
         public const string BUTTON = "UI_Button";
+        public const string PHONECAM_RENDER = "UI_CamRender";
     }
 
     public class Main : MonoBehaviour {

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - UI_Button
+  - UI_CamRender
   layers:
   - Default
   - TransparentFX
