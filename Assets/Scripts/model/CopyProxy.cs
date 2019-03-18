@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using PureMVC.Interfaces;
 using PureMVC.Patterns.Proxy;
-using UnityEngine;
 namespace Ordina.Model {
 
     /*
      * CopyProxy is used for storing copy like labels, texts etc for UI elements like buttons and panels
-     */    
+     */
     public class CopyProxy : Proxy, IProxy {
 
         public new const string NAME = "CopyProxy";
@@ -16,8 +15,8 @@ namespace Ordina.Model {
 
         public override void OnRegister() {
             GetData().Add(CopyKeys.TAKE_PICTURE, "Neem foto");
-            GetData().Add(CopyKeys.CLEAR_PICTURE, "Verwijder foto");
-            GetData().Add(CopyKeys.UPLOAD_DATA, "Haal info op");
+            GetData().Add(CopyKeys.CLEAR_PICTURE, "Opnieuw");
+            GetData().Add(CopyKeys.UPLOAD_DATA, "Haal kenteken info");
             GetData().Add(CopyKeys.COPY_NOT_FOUND, "Label ontbreekt");
             GetData().Add(CopyKeys.RESET, "Opnieuw");
         }
@@ -30,12 +29,10 @@ namespace Ordina.Model {
             string result = CopyKeys.COPY_NOT_FOUND;
             if (GetData().TryGetValue(key, out result)) {
                 return result;
-            }
-            else {
+            } else {
                 return result;
             }
         }
-
     }
     public struct CopyVO {
         public string label;
@@ -48,6 +45,6 @@ namespace Ordina.Model {
         public const string RESET = "RESET";
         public const string COPY_NOT_FOUND = "COPY_NOT_FOUND";
         public const string UPLOAD_DATA = "UPLOAD_DATA";
-        
+
     }
 }

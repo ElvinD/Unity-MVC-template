@@ -48,9 +48,11 @@ namespace Ordina.View {
         }
 
         public void Hide() {
+            gameObject.SetActive(false);
         }
 
         public void Show() {
+            gameObject.SetActive(true);
         }
 
         protected void OnClick() {

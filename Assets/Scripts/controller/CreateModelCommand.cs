@@ -8,6 +8,8 @@ namespace Ordina.Controller {
         public override void Execute(INotification notification) {
             Facade.RegisterProxy(new ApplicationStateProxy());
             Facade.RegisterProxy(new CopyProxy());
+            Facade.RegisterProxy(new FileProxy());
+            Facade.RegisterProxy(new UserDataProxy());
             Facade.RegisterProxy(new CarProxy());
         }
     }

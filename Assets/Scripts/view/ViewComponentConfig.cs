@@ -9,6 +9,6 @@ public class ViewComponentConfig : MonoBehaviour {
     public float InitPosY;
     public float InitPosZ;
 
-    public ApplicationActions actions;
+    public UIActions actions;
     public string Label;
 }

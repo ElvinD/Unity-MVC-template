@@ -9,9 +9,9 @@ namespace Ordina.Model {
         public new const string NAME = "CarProxy";
 
         public CarProxy() : base(NAME, new ObservableCollection<CarVO>()) {
-}
+        }
 
-        private class CarVO {
+        public struct CarVO {
         }
     }
 }

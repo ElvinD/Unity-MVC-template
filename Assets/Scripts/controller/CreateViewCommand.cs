@@ -12,6 +12,10 @@ namespace Ordina.Controller {
             Facade.RegisterMediator(new ApplicationMediator(app));
             RegisterButtonMediators();
             RegisterPhoneCamMediator();
+
+
+            ApplicationStateProxy stateProxy = Facade.RetrieveProxy(ApplicationStateProxy.NAME) as ApplicationStateProxy;
+            stateProxy.SetState(ApplicationStates.USING_CAMERA);
         }
 
         private void RegisterPhoneCamMediator() {
@@ -20,7 +24,12 @@ namespace Ordina.Controller {
                 Debug.LogWarning("Phone camera view needs a render canvas, but none was found");
                 return;
             }
-            PhoneCamView phonecam = new PhoneCamView(canvasContainer);
+            var previewContainer = GameObject.FindGameObjectWithTag(GameObjectTags.PHONECAM_PREVIEW);
+            if (previewContainer == null) {
+                Debug.LogWarning("Phone camera view needs a preview canvas, but none was found");
+                return;
+            }
+            PhoneCamView phonecam = new PhoneCamView(canvasContainer, previewContainer);
             Facade.RegisterMediator(new PhoneCamMediator(phonecam, PhoneCamMediator.NAME));
         }
 
@@ -32,15 +41,15 @@ namespace Ordina.Controller {
                 foreach (GameObject o in objects) {
                     ButtonView bv = new ButtonView(o);
                     switch (bv.Config?.actions) {
-                        case ApplicationActions.TAKE_PHOTO:
+                        case UIActions.TAKE_PHOTO:
                             buttonLabel = copyProxy.GetCopy(CopyKeys.TAKE_PICTURE);
                             break;
 
-                        case ApplicationActions.UPLOAD_PHOTO:
+                        case UIActions.UPLOAD_PHOTO:
                             buttonLabel = copyProxy.GetCopy(CopyKeys.UPLOAD_DATA);
                             break;
 
-                        case ApplicationActions.RESET_PHOTO:
+                        case UIActions.RESET_PHOTO:
                             buttonLabel = copyProxy.GetCopy(CopyKeys.CLEAR_PICTURE);
                             break;
 
