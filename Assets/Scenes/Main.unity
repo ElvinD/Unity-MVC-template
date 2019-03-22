@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 293783633}
   - component: {fileID: 293783636}
   m_Layer: 5
-  m_Name: BottomButton
+  m_Name: TakePhotoButton
   m_TagString: UI_Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 412815177}
   - component: {fileID: 412815176}
   m_Layer: 5
-  m_Name: MiddleButton
+  m_Name: UploadButton
   m_TagString: UI_Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -942,7 +942,7 @@ GameObject:
   - component: {fileID: 1078976392}
   - component: {fileID: 1078976391}
   m_Layer: 5
-  m_Name: TopButton
+  m_Name: ResetButton
   m_TagString: UI_Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -965,7 +965,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 220}
+  m_AnchoredPosition: {x: 0, y: 60}
   m_SizeDelta: {x: 320, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1078976391
