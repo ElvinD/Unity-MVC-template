@@ -9,8 +9,9 @@ namespace Ordina.View {
         public ApplicationMediator(Main viewComponent = null) : base(NAME, viewComponent) {
         }
 
-        public override void OnRegister() {
-            //CarProxy proxy = (CarProxy)Facade.RetrieveProxy(CarProxy.NAME);
+        public Main GetViewComponent() {
+            return ViewComponent as Main;
         }
+
     }
 }

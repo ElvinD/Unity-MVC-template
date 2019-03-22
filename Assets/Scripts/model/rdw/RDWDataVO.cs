@@ -1,5 +1,4 @@
-﻿using System;
-namespace Ordina.Model.RDW {
+﻿namespace Ordina.Model.RDW {
 
     [System.Serializable]
     public struct VoertuigSpecificatieVO {

@@ -18,14 +18,12 @@ namespace Ordina.Controller {
                          * This space reserved for additional checks on actions. For example showing the user a modal first if confirmation is needed.
                          */
                         case UIActions.TAKE_PHOTO:
-                            //SendNotification(Notifications.REQUEST_TAKE_PHOTO);
                             mediator = Facade.RetrieveMediator(PhoneCamMediator.NAME) as PhoneCamMediator;
                             (mediator as PhoneCamMediator).TakePicture();
-                            //Debug.Log("Take photo action heard");
                             break;
 
                         case UIActions.UPLOAD_PHOTO:
-                            Debug.Log("upload  photo action heard");
+                            SendNotification(Notifications.REQUEST_RETRIEVE_DATA);
                             break;
 
                         case UIActions.RESET_PHOTO:
@@ -34,8 +32,6 @@ namespace Ordina.Controller {
                             break;
                         default:
                             break;
-
-
                     }
                     break;
 

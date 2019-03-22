@@ -51,11 +51,11 @@ namespace Ordina.View {
             _renderCanvas.texture = _camTexture;
         }
 
-        public void TakePicture(Action<byte[]> onSuccess) {
-            /*
-             * Coroutines are only available from Monobehaviours          
-             */
-            Main.instance.StartCoroutine(TakePictureEnum(onSuccess));
+        /*
+         * Coroutines are only available from Monobehaviours, so we inject the main application       
+         */
+        public void TakePicture(Action<byte[]> onSuccess, MonoBehaviour application) {
+            application.StartCoroutine(TakePictureEnum(onSuccess));
         }
 
         protected IEnumerator TakePictureEnum(Action<byte[]> onSuccess) {
@@ -69,8 +69,7 @@ namespace Ordina.View {
             onSuccess(b);
         }
 
-        public void ShowPreview(string url) {
-            byte[] bytes = System.IO.File.ReadAllBytes(url);
+        public void ShowPreview(byte[] bytes) {
             Texture2D previewTexture = new Texture2D(1, 1);
             previewTexture.LoadImage(bytes);
             Sprite sprite = Sprite.Create(previewTexture, new Rect(0, 0, 1280, 720), new Vector2(1f, 1f));

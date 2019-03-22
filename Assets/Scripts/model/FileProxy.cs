@@ -23,7 +23,7 @@ namespace Ordina.Model {
             }
             DateTime date = System.DateTime.Now;
             string url = Application.persistentDataPath + "/" + string.Format("{0}_foto_{1}.jpg", Application.productName, date.ToString("yyyy-MM-dd_HH-mm-ss"));
-            GetData().Add(url, new FileVO(FileProxy.IdCounter++, url, hash, date));
+            GetData().Add(url, new FileVO(FileProxy.IdCounter++, url, hash, date, bytes));
             FileStorageService.SaveToFile(url, bytes);
             ListFiles();
             return GetData()[url];
@@ -46,12 +46,14 @@ namespace Ordina.Model {
         public readonly string url;
         public readonly string hash;
         public readonly DateTime created;
+        public readonly byte[] bytes;
 
-        public FileVO(int id, string url, string hash, DateTime created) {
+        public FileVO(int id, string url, string hash, DateTime created, byte[] bytes) {
             this.id = id;
             this.url = url;
             this.hash = hash;
             this.created = created;
+            this.bytes = bytes;
         }
     }
 

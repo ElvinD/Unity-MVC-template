@@ -8,7 +8,10 @@ using UnityEngine.UI;
 
 namespace Ordina.Service.RDW {
 
-    public class RestService {
+    public class RestService<T> {
+
+        public delegate void OnDataResultDelegate(T data);
+        public OnDataResultDelegate onRDWDataResultDelegate;
 
 
         public RestService() {
@@ -23,7 +26,7 @@ namespace Ordina.Service.RDW {
             client.Post(new System.Uri(restAPI_URL), content, HttpCompletionOption.AllResponseContent, OnUploadImageComplete, (u) => { });
         }
 
-        public T ParseImageResults<T>(string results) {
+        private T ParseImageResults(string results) {
             return JsonUtility.FromJson<T>(results);
         }
 
@@ -31,8 +34,7 @@ namespace Ordina.Service.RDW {
 
             var byteArray = r.ReadAsByteArray();
             var responseData = System.Text.Encoding.UTF8.GetString(byteArray, 0, byteArray.Length);
-
-            Debug.Log("ALPR completed: " + responseData);
+            onRDWDataResultDelegate?.Invoke(ParseImageResults(responseData));
 
             //openALPRResult = ParseALPRResults(PictureAlprData);
 

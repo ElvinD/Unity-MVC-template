@@ -16,6 +16,7 @@ namespace Ordina {
     static class Notifications {
         public const string STARTUP = "startup";
         public const string SEND_UI_ACTION = "send_ui_action";
+        public const string REQUEST_RETRIEVE_DATA = "request_retrieve_data";
         public const string REQUEST_STATE_CHANGE = "request_state_change";
         public const string SEND_STATE_CHANGE = "send_state_change";
 
@@ -72,7 +73,7 @@ namespace Ordina {
             base.InitializeController();
             RegisterCommand(Notifications.STARTUP, () => new StartupCommand());
             RegisterCommand(Notifications.SEND_UI_ACTION, () => new HandleUIActionCommand());
-
+            RegisterCommand(Notifications.REQUEST_RETRIEVE_DATA, () => new RetrieveDataCommand());
         }
     }
 }

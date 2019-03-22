@@ -19,7 +19,7 @@ namespace Ordina.View {
         }
 
         public void TakePicture() {
-            GetViewComponent().TakePicture(OnPictureTaken);
+            GetViewComponent().TakePicture(OnPictureTaken, GetApplicationMediator().GetViewComponent());
         }
 
         public override string[] ListNotificationInterests() {
@@ -34,7 +34,7 @@ namespace Ordina.View {
                         case ApplicationStates.REVIEWING_PHOTO_PREVIEW:
                             GetViewComponent().DeActivateCamera();
                             FileVO file = GetUserDataProxy().GetData().SelectedPhoto;
-                            GetViewComponent().ShowPreview(file.url);
+                            GetViewComponent().ShowPreview(file.bytes);
                             break;
 
                         case ApplicationStates.SHOWING_RESULTS:
@@ -69,6 +69,10 @@ namespace Ordina.View {
 
         private ApplicationStateProxy GetApplicationStateProxy() {
             return Facade.RetrieveProxy(ApplicationStateProxy.NAME) as ApplicationStateProxy;
+        }
+
+        private ApplicationMediator GetApplicationMediator() {
+            return Facade.RetrieveMediator(ApplicationMediator.NAME) as ApplicationMediator;
         }
 
         private UserDataProxy GetUserDataProxy() {
