@@ -28,6 +28,7 @@ namespace Ordina {
     [System.Serializable]
     public enum UIActions {
         TAKE_PHOTO,
+        LOAD_PHOTO,
         UPLOAD_PHOTO,
         RESET_PHOTO
     }

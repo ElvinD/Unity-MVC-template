@@ -43,6 +43,7 @@ namespace Ordina.View {
                         case ApplicationStates.REVIEWING_PHOTO_PREVIEW:
                             switch (GetViewComponent().Config.actions) {
                                 case UIActions.TAKE_PHOTO:
+                                case UIActions.LOAD_PHOTO:
                                     GetViewComponent().Hide();
                                     break;
 
@@ -63,6 +64,7 @@ namespace Ordina.View {
                         case ApplicationStates.USING_CAMERA:
                             switch (GetViewComponent().Config.actions) {
                                 case UIActions.TAKE_PHOTO:
+                                case UIActions.LOAD_PHOTO:
                                     GetViewComponent().Show();
                                     break;
 

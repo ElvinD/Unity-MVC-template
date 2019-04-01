@@ -20,6 +20,9 @@ namespace Ordina.Controller {
                     Debug.Log("retrieved a result from api: " + result);
                     if (result.results.Count > 0) {
 
+                    } else {
+                        Debug.Log("No licenseplates found");
+                        GetStateProxy().SetState(ApplicationStates.USING_CAMERA);
                     }
                 }
             };
@@ -33,6 +36,10 @@ namespace Ordina.Controller {
 
         private ApplicationMediator GetApplicationMediator() {
             return Facade.RetrieveMediator(ApplicationMediator.NAME) as ApplicationMediator;
+        }
+
+        private ApplicationStateProxy GetStateProxy() {
+            return Facade.RetrieveProxy(ApplicationStateProxy.NAME) as ApplicationStateProxy;
         }
     }
 }

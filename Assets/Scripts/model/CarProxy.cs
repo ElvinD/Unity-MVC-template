@@ -11,6 +11,10 @@ namespace Ordina.Model {
         public CarProxy() : base(NAME, new List<CarVO>()) {
         }
 
+        public List<CarVO> GetData() {
+            return (List<CarVO>)Data;
+        }
+
         public struct CarVO {
             public string pictureSourceURL;
             public VoertuigSpecificatieVO spec;

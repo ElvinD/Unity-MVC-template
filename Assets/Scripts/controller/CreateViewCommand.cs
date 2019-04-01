@@ -42,7 +42,11 @@ namespace Ordina.Controller {
                     ButtonView bv = new ButtonView(o);
                     switch (bv.Config?.actions) {
                         case UIActions.TAKE_PHOTO:
-                            buttonLabel = copyProxy.GetCopy(CopyKeys.TAKE_PICTURE);
+                            buttonLabel = copyProxy.GetCopy(CopyKeys.TAKE_PHOTO);
+                            break;
+
+                        case UIActions.LOAD_PHOTO:
+                            buttonLabel = copyProxy.GetCopy(CopyKeys.LOAD_PHOTO);
                             break;
 
                         case UIActions.UPLOAD_PHOTO:
@@ -50,7 +54,7 @@ namespace Ordina.Controller {
                             break;
 
                         case UIActions.RESET_PHOTO:
-                            buttonLabel = copyProxy.GetCopy(CopyKeys.CLEAR_PICTURE);
+                            buttonLabel = copyProxy.GetCopy(CopyKeys.CLEAR_PHOTO);
                             break;
 
                         default:

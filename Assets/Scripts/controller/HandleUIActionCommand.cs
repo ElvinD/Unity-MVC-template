@@ -21,6 +21,10 @@ namespace Ordina.Controller {
                             mediator = Facade.RetrieveMediator(PhoneCamMediator.NAME) as PhoneCamMediator;
                             (mediator as PhoneCamMediator).TakePicture();
                             break;
+                        case UIActions.LOAD_PHOTO:
+                            mediator = Facade.RetrieveMediator(PhoneCamMediator.NAME) as PhoneCamMediator;
+                            (mediator as PhoneCamMediator).LoadPicture();
+                            break;
 
                         case UIActions.UPLOAD_PHOTO:
                             SendNotification(Notifications.REQUEST_RETRIEVE_DATA);
