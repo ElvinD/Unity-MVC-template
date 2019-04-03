@@ -2,6 +2,7 @@
 using PureMVC.Patterns.Proxy;
 using Ordina.Model.RDW;
 using System.Collections.Generic;
+using System;
 
 namespace Ordina.Model {
     public class CarProxy : Proxy, IProxy {
@@ -16,9 +17,15 @@ namespace Ordina.Model {
         }
 
         public struct CarVO {
+            public string id;
             public string pictureSourceURL;
             public VoertuigSpecificatieVO spec;
             public APK_KeuringVO apk;
+
+            public CarVO(string id, string pictureSourceURL) : this() {
+                this.id = id ?? throw new ArgumentNullException(nameof(id));
+                this.pictureSourceURL = pictureSourceURL ?? throw new ArgumentNullException(nameof(pictureSourceURL));
+            }
         }
     }
 }

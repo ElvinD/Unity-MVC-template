@@ -17,7 +17,7 @@ namespace Ordina.Model {
         }
 
         public void SelectPhoto(FileVO file) {
-            if (!System.Object.ReferenceEquals(GetData().SelectedPhoto, file)) {
+            if (!object.ReferenceEquals(GetData().SelectedPhoto, file)) {
                 GetData().SelectedPhoto = file;
                 Debug.Log("selecting a photo in proxy");
             } else {
