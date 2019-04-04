@@ -12,10 +12,7 @@ namespace Ordina.Controller {
             Facade.RegisterMediator(new ApplicationMediator(app));
             RegisterButtonMediators();
             RegisterPhoneCamMediator();
-
-
-            ApplicationStateProxy stateProxy = Facade.RetrieveProxy(ApplicationStateProxy.NAME) as ApplicationStateProxy;
-            stateProxy.SetState(ApplicationStates.USING_CAMERA);
+            RegisterResultsMediator();
         }
 
         private void RegisterPhoneCamMediator() {
@@ -30,7 +27,7 @@ namespace Ordina.Controller {
                 return;
             }
             PhoneCamView phonecam = new PhoneCamView(canvasContainer, previewContainer);
-            Facade.RegisterMediator(new PhoneCamMediator(phonecam, PhoneCamMediator.NAME));
+            Facade.RegisterMediator(new PhoneCamMediator(PhoneCamMediator.NAME, phonecam));
         }
 
         private void RegisterButtonMediators() {
@@ -64,9 +61,20 @@ namespace Ordina.Controller {
                     bv.Label = buttonLabel;
 
                     string name = ButtonMediator.NAME + bv.Id;
-                    Facade.RegisterMediator(new ButtonMediator(bv, name));
+                    Facade.RegisterMediator(new ButtonMediator(name, bv));
                 }
             }
+        }
+
+        private void RegisterResultsMediator() {
+            var resultsContainer = GameObject.FindGameObjectWithTag(GameObjectTags.TEXT_RESULTS);
+            if (resultsContainer == null) {
+                Debug.LogWarning("Application needs panel to show results, but none was found");
+                return;
+            }
+
+            PanelResultsView resultsView = new PanelResultsView(resultsContainer);
+            Facade.RegisterMediator(new PanelResultsMediator(PanelResultsMediator.NAME, resultsView));
         }
     }
 }

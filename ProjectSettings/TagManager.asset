@@ -7,6 +7,8 @@ TagManager:
   - UI_Button
   - UI_CamRender
   - UI_CamPreview
+  - UI_TextResults
+  - UI_Plate
   layers:
   - Default
   - TransparentFX

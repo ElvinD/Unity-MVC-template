@@ -19,8 +19,6 @@ namespace Ordina {
         public const string REQUEST_RETRIEVE_DATA = "request_retrieve_data";
         public const string REQUEST_STATE_CHANGE = "request_state_change";
         public const string SEND_STATE_CHANGE = "send_state_change";
-
-
     }
     #endregion
 
@@ -47,6 +45,8 @@ namespace Ordina {
         public const string BUTTON = "UI_Button";
         public const string PHONECAM_RENDER = "UI_CamRender";
         public const string PHONECAM_PREVIEW = "UI_CamPreview";
+        public const string TEXT_RESULTS = "UI_TextResults";
+        public const string PLATE_RESULTS = "UI_Plate";
     }
 
     public class Main : MonoBehaviour {
@@ -66,7 +66,6 @@ namespace Ordina {
 
 
         public void Startup(Main app) {
-            //Debug.Log("started app: " + app);
             SendNotification(Notifications.STARTUP, app);
         }
 

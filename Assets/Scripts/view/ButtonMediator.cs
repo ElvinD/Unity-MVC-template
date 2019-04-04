@@ -5,7 +5,7 @@ namespace Ordina.View {
     public class ButtonMediator : Mediator {
         public new const string NAME = "ButtonMediator-";
 
-        public ButtonMediator(ButtonView viewComponent, string name) : base(name, viewComponent) {
+        public ButtonMediator(string name, ButtonView viewComponent) : base(name, viewComponent) {
         }
 
         protected void InitListeners() {

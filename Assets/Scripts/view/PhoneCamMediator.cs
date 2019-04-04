@@ -7,7 +7,7 @@ namespace Ordina.View {
     public class PhoneCamMediator : Mediator {
         public new const string NAME = "PhoneCamMediator";
 
-        public PhoneCamMediator(PhoneCamView viewComponent, string name) : base(name, viewComponent) {
+        public PhoneCamMediator(string name, PhoneCamView viewComponent) : base(name, viewComponent) {
         }
 
         protected void InitListeners() {

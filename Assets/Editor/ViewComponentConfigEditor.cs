@@ -1,8 +1,7 @@
 ﻿using UnityEditor;
 
 [CustomEditor(typeof(ViewComponentConfig))]
-public class ViewComponentConfigEditor : Editor
-{
+public class ViewComponentConfigEditor : Editor {
     SerializedProperty actions;
 
     void OnEnable() {

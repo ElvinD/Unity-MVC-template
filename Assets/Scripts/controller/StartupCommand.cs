@@ -6,6 +6,8 @@ namespace Ordina.Controller {
         protected override void InitializeMacroCommand() {
             AddSubCommand(() => new CreateModelCommand());
             AddSubCommand(() => new CreateViewCommand());
+            AddSubCommand(() => new InitStateCommand());
+
         }
     }
 }
